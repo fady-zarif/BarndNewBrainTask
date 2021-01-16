@@ -1,2 +1,4 @@
+include ':MqttOverIntentLib'
 include ':app'
+project(':MqttOverIntentLib').projectDir = new File(rootDir, 'MQTTOverIntent2/MqttOverIntentLib/')
 rootProject.name = "Brain-Power-Task"
