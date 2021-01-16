@@ -1,0 +1,3 @@
+[submodule "MQTTOverIntent2"]
+	path = MQTTOverIntent2
+	url = https://github.com/fady-zarif/MQTTOverIntent2.git
