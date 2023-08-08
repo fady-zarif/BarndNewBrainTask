@@ -6,16 +6,24 @@ import org.junit.Assert.*
 class MainActivityTest {
     @Test
     fun recyclerView_isPopulated() {
-        // TODO: Implement test
+        val mainActivity = MainActivity()
+        mainActivity.populateRecyclerView()
+        assertNotNull(mainActivity.recyclerView.adapter)
     }
 
     @Test
     fun loadingSpinner_isDisplayedAndHidden() {
-        // TODO: Implement test
+        val mainActivity = MainActivity()
+        mainActivity.showLoadingSpinner()
+        assertTrue(mainActivity.loadingSpinner.isDisplayed)
+        mainActivity.hideLoadingSpinner()
+        assertFalse(mainActivity.loadingSpinner.isDisplayed)
     }
 
     @Test
     fun bottomSheetView_isDisplayed() {
-        // TODO: Implement test
+        val mainActivity = MainActivity()
+        mainActivity.showBottomSheetView()
+        assertTrue(mainActivity.bottomSheetView.isDisplayed)
     }
 }
