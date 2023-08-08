@@ -6,6 +6,8 @@ import org.junit.Assert.*
 class RemoteSourceImpTest {
     @Test
     fun data_isFetchedCorrectly() {
-        // TODO: Implement test
+        val remoteSourceImp = RemoteSourceImp()
+        val data = remoteSourceImp.fetchData()
+        assertNotNull(data)
     }
 }
