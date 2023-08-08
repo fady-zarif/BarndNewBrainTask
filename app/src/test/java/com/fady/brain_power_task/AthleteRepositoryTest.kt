@@ -6,11 +6,16 @@ import org.junit.Assert.*
 class AthleteRepositoryTest {
     @Test
     fun data_isFetchedCorrectly() {
-        // TODO: Implement test
+        val athleteRepository = AthleteRepository(RemoteSourceImp())
+        val data = athleteRepository.fetchData()
+        assertNotNull(data)
     }
 
     @Test
     fun data_isCachedCorrectly() {
-        // TODO: Implement test
+        val athleteRepository = AthleteRepository(RemoteSourceImp())
+        athleteRepository.fetchData()
+        val cachedData = athleteRepository.getCachedData()
+        assertNotNull(cachedData)
     }
 }
