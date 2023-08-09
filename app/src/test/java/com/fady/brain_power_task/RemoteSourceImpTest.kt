@@ -8,8 +8,10 @@ class RemoteSourceImpTest {
 
     @Test
     fun data_isFetchedCorrectly() {
-        `when`(remoteSourceImp.fetchData()).thenReturn(mock(Data::class.java))
+        val expectedData = mock(Data::class.java)
+        `when`(remoteSourceImp.fetchData()).thenReturn(expectedData)
         val data = remoteSourceImp.fetchData()
         assertNotNull(data)
+        assertEquals(expectedData, data)
     }
 }
