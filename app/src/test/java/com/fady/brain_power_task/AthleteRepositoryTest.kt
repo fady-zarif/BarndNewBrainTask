@@ -9,17 +9,21 @@ class AthleteRepositoryTest {
 
     @Test
     fun data_isFetchedCorrectly() {
-        `when`(athleteRepository.fetchData()).thenReturn(mock(Data::class.java))
+        val expectedData = mock(Data::class.java)
+        `when`(athleteRepository.fetchData()).thenReturn(expectedData)
         val data = athleteRepository.fetchData()
         assertNotNull(data)
+        assertEquals(expectedData, data)
     }
 
     @Test
     fun data_isCachedCorrectly() {
-        `when`(athleteRepository.fetchData()).thenReturn(mock(Data::class.java))
-        `when`(athleteRepository.getCachedData()).thenReturn(mock(Data::class.java))
+        val expectedData = mock(Data::class.java)
+        `when`(athleteRepository.fetchData()).thenReturn(expectedData)
+        `when`(athleteRepository.getCachedData()).thenReturn(expectedData)
         athleteRepository.fetchData()
         val cachedData = athleteRepository.getCachedData()
         assertNotNull(cachedData)
+        assertEquals(expectedData, cachedData)
     }
 }
