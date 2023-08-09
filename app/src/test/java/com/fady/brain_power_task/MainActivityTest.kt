@@ -19,15 +19,15 @@ class MainActivityTest {
     
         @Test
         fun recyclerView_isPopulated() {
-            `when`(mainActivity.populateRecyclerView()).thenReturn(Unit)
+            `when`(mainActivity.populateRecyclerView()).thenReturn(mock(RecyclerView.Adapter::class.java))
             mainActivity.populateRecyclerView()
             assertNotNull(mainActivity.recyclerView.adapter)
         }
     
         @Test
         fun loadingSpinner_isDisplayedAndHidden() {
-            `when`(mainActivity.showLoadingSpinner()).thenReturn(Unit)
-            `when`(mainActivity.hideLoadingSpinner()).thenReturn(Unit)
+            `when`(mainActivity.showLoadingSpinner()).thenReturn(true)
+            `when`(mainActivity.hideLoadingSpinner()).thenReturn(false)
             mainActivity.showLoadingSpinner()
             assertTrue(mainActivity.loadingSpinner.isDisplayed)
             mainActivity.hideLoadingSpinner()
@@ -36,7 +36,7 @@ class MainActivityTest {
     
         @Test
         fun bottomSheetView_isDisplayed() {
-            `when`(mainActivity.showBottomSheetView()).thenReturn(Unit)
+            `when`(mainActivity.showBottomSheetView()).thenReturn(true)
             mainActivity.showBottomSheetView()
             assertTrue(mainActivity.bottomSheetView.isDisplayed)
         }
