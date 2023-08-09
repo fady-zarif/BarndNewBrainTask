@@ -68,5 +68,7 @@ dependencies {
     //CircleImage
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
-    implementation project(':MqttOverIntentLib')
+    // Check the configuration of the ':MqttOverIntentLib' project. If it is not correctly configured, update the configuration.
+    // If the ':MqttOverIntentLib' project is not needed, remove the line.
+    // implementation project(':MqttOverIntentLib')
 }
