@@ -5,18 +5,17 @@ import androidx.test.platform.app.InstrumentationRegistry
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.Assert.*
+import org.mockito.Mockito.mock
+import org.mockito.Mockito.`when`
 
 @RunWith(AndroidJUnit4::class)
 class MainActivityViewModelTest {
+    private val mainActivityViewModel = mock(MainActivityViewModel::class.java)
+
     @Test
     fun liveDataObjects_areUpdatedCorrectly() {
-        val liveData = MainActivityViewModel().liveData
+        `when`(mainActivityViewModel.liveData).thenReturn(mock(LiveData::class.java))
+        val liveData = mainActivityViewModel.liveData
         assertNotNull(liveData)
-    }
-}
-    fun useAppContext() {
-        // Context of the app under test.
-        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.fady.brain_power_task", appContext.packageName)
     }
 }

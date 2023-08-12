@@ -1,17 +1,29 @@
 package com.fady.brain_power_task
 
 import org.junit.Test
-
 import org.junit.Assert.*
 
-/**
- * Example local unit test, which will execute on the development machine (host).
- *
- * See [testing documentation](http://d.android.com/tools/testing).
- */
-class ExampleUnitTest {
+class MainActivityTest {
     @Test
-    fun addition_isCorrect() {
-        assertEquals(4, 2 + 2)
+    fun recyclerView_isPopulated() {
+        val mainActivity = MainActivity()
+        mainActivity.populateRecyclerView()
+        assertNotNull(mainActivity.recyclerView.adapter)
+    }
+
+    @Test
+    fun loadingSpinner_isDisplayedAndHidden() {
+        val mainActivity = MainActivity()
+        mainActivity.showLoadingSpinner()
+        assertTrue(mainActivity.loadingSpinner.isDisplayed)
+        mainActivity.hideLoadingSpinner()
+        assertFalse(mainActivity.loadingSpinner.isDisplayed)
+    }
+
+    @Test
+    fun bottomSheetView_isDisplayed() {
+        val mainActivity = MainActivity()
+        mainActivity.showBottomSheetView()
+        assertTrue(mainActivity.bottomSheetView.isDisplayed)
     }
 }
