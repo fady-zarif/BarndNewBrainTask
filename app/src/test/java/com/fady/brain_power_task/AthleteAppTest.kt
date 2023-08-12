@@ -14,5 +14,7 @@ class AthleteAppTest : KoinTest {
         startKoin {
             modules(listOf(networkModule, viewModule))
         }.checkModules()
+        val athleteApp = AthleteApp()
+        assertNotNull(athleteApp)
     }
 }
