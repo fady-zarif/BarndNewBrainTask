@@ -10,3 +10,26 @@ class MainActivityTest {
     private val recyclerView = mock(RecyclerView::class.java)
     private val loadingSpinner = mock(ProgressBar::class.java)
     private val bottomSheetView = mock(BottomSheetView::class.java)
+
+    @Before
+    fun setup() {
+        `when`(mainActivity.recyclerView).thenReturn(recyclerView)
+        `when`(mainActivity.loadingSpinner).thenReturn(loadingSpinner)
+        `when`(mainActivity.bottomSheetView).thenReturn(bottomSheetView)
+    }
+
+    @Test
+    fun testMainActivityBehavior() {
+        mainActivity.showLoadingSpinner()
+        verify(loadingSpinner).show()
+        assertTrue(mainActivity.loadingSpinner.isShown)
+
+        mainActivity.hideLoadingSpinner()
+        verify(loadingSpinner).hide()
+        assertFalse(mainActivity.loadingSpinner.isShown)
+
+        mainActivity.showBottomSheetView()
+        verify(bottomSheetView).show()
+        assertTrue(mainActivity.bottomSheetView.isShown)
+    }
+}
