@@ -11,6 +11,7 @@ class RemoteSourceImpTest {
         val expectedData = mock(Data::class.java)
         `when`(remoteSourceImp.fetchData()).thenReturn(expectedData)
         val data = remoteSourceImp.fetchData()
+        verify(remoteSourceImp).fetchData()
         assertNotNull(data)
         assertEquals(expectedData, data)
     }
